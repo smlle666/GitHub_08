@@ -1,0 +1,48 @@
+$heightstab: 10vh
+$height2: 80vh
+$widthfloor: 100% / 3
+
+*
+    box-sizing: border-box
+
+body 
+    margin: 0
+
+.flex-container
+    display: -webkit-flex
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+.cell
+    padding: 1vh
+
+%legacy
+    width: $widthfloor
+    height: $heightstab
+
+=container($widthblock, $heightblock, $bgcolor, $blockorder)
+    width: $widthblock
+    height: $heightblock
+    background-color: $bgcolor
+    order: $blockorder
+
+.red
+    +container(30%, $heightstab, rgb(255,0,0), 1)
+
+.orange
+    +container(70%, $heightstab, rgb(255,165,0), 2)
+.green
+    +container(100%, $height2, rgb(0,128,0), 3)
+.brown
+    @extend %legacy
+    background-color: rgb(165,42,42)
+    order: 4
+.blue
+    @extend %legacy
+    background-color: rgb(0,0,255)
+    order: 5
+.purple
+    @extend %legacy
+    background-color: rgb(128,0,128)
+    order: 6
